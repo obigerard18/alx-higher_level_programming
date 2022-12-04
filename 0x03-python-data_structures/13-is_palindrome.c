@@ -1,31 +1,81 @@
 #include "lists.h"
+#include <stdlib.h>
+#include <stdio.h>
 
 /**
-* is_palindrome - function to call check_pal to see if list is palindrome
-* @head: ptr to the beginning of the list
-* Return: 0 if not palindrome else 1
+* add_nodeint - adds a new node at the beginning of a listint_t list
+* @head: head of listint_t
+* @n: int to add in listint_t list
+* Return: address of the new element, or NULL if it failed
+*/
+listint_t *add_nodeint(listint_t **head, const int n)
+{
+	listint_t *new;
+
+	new = malloc(sizeof(listint_t));
+	if (new == NULL)
+		return (NULL);
+	new->n = n;
+	new->next = *head;
+	*head = new;
+	return (new);
+}
+/**
+* is_palindrome - identify if a syngle linked list is palindrome
+* @head: head of listint_t
+* Return: 1 if it is palindrome else 0
 */
 int is_palindrome(listint_t **head)
 {
-	if (head == NULL || *head == NULL)
+	listint_t *head2 = *head;
+	listint_t *aux = NULL, *aux2 = NULL;
+
+	if (*head == NULL || head2->next == NULL)
 		return (1);
-	return (check_pal(head, *head));
+	while (head2 != NULL)
+	{
+		add_nodeint(&aux, head2->n);
+		head2 = head2->next;
+	}
+	aux2 = aux;
+	while (*head != NULL)
+	{
+		while (*head != NULL)
+		{
+			free_listint(aux);
+			return (0);
+		}
+		*head = (*head)->next;
+		aux2 = aux2->next;
+	}
+	free_listint(aux);
+	return (1);
 }
 
-/**
-* check_pal - function to check if the list is palindrome
-* @head: ptr to the beginning of the list
-* @last: ptr to the end of the list
-* Return: 0 if not palindrom else 1
-*/
-int check_pal(listint_t **head, listint_t *last)
-{
-	if (last == NULL)
-		return (1);
-	if (check_pal(head, last->next) && (*head)->n == last->n)
-	{
-		*head = (*head)->next;
-		return (1);
-	}
-	return (0);
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
