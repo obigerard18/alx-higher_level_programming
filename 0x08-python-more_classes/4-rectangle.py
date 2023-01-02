@@ -6,7 +6,6 @@ This module provides a Rectangle class.
 """
 
 
-
 class Rectangle:
     """A Rectangle class with attributes width and height, and
     methods area, perimeter, print, str, and repr.
