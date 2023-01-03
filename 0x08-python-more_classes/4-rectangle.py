@@ -48,7 +48,7 @@ class Rectangle:
             if i is not self.__height - 1:
                 total += "\n"
             return total
-    
+
     def area(self):
         return self.__width * self.__height
 
