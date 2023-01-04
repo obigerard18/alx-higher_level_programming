@@ -1,0 +1,88 @@
+The ``5-text_indentation`` module
+======================
+
+Using ``text_indentation``
+--------------------
+
+Importing the function from the module:
+        >>> text_indentation = __import__('5-text_indentation').text_indentation
+
+Checking with all delimiters
+        >>> text_indentation("""Plus: semper voluptatis? Teneo, inquit. Finem""")
+        Plus:
+        <BLANKLINE>
+        semper voluptatis?
+        <BLANKLINE>
+        Teneo, inquit.
+        <BLANKLINE>
+        Finem
+
+Checking without arguments
+        >>> text_indentation()
+        Traceback (most recent call last):
+        ...
+        TypeError: text_indentation() missing 1 required positional argument: 'text'
+
+Checking more than one argument
+        >>> text_indentation("""Plus semper voluptatis?""", """Teneo, inquit, finem""")
+        Traceback (most recent call last):
+        ...
+        TypeError: text_indentation() takes 1 positional argument but 2 were given
+
+Checking no-string
+        >>> text_indentation((1, 2))
+        Traceback (most recent call last):
+        ...
+        TypeError: text must be a string
+        >>> text_indentation(593)
+        Traceback (most recent call last):
+        ...
+        TypeError: text must be a string
+
+Checking empty string
+        >>> text_indentation("")
+
+Ckecking string with spaces only
+        >>> text_indentation("   ")
+
+Checking contiguous delimiters
+        >>> text_indentation(":?.")
+        :
+        <BLANKLINE>
+        ?
+        <BLANKLINE>
+        .
+        <BLANKLINE>
+
+Checking newline
+        >>> text_indentation("\n")
+        <BLANKLINE>
+        >>> text_indentation("\n\n\n")
+        <BLANKLINE>
+        <BLANKLINE>
+        <BLANKLINE>
+
+Ckecking text with spaces at the beginnig and the end
+        >>> text_indentation("    Plus semper voluptatis?, Teneo,     ")
+        Plus semper voluptatis?
+        <BLANKLINE>
+        , Teneo,
+
+Ckecking all delimiters with spaces at beginning and the end
+        >>> text_indentation("voluptatis :  semper ?     Plus  .    ")
+        voluptatis:
+        <BLANKLINE>
+        semper?
+        <BLANKLINE>
+        Plus.
+        <BLANKLINE>
+
+Checking with dollars
+        >>> text_indentation("$$$?$$$:$$$.$$$")
+        $$$?
+        <BLANKLINE>
+        $$$:
+        <BLANKLINE>
+        $$$.
+        <BLANKLINE>
+        $$$
