@@ -1,0 +1,80 @@
+The ``4-print_square`` module
+======================
+
+Using ``print_square``
+--------------------
+
+Importing the function from the module:
+        >>> print_square = __import__("4-print_square").print_square
+
+Checking for positives
+        >>> print_square(3)
+        ###
+        ###
+        ###
+        >>> print_square(0)
+        >>> print_square(1)
+        #
+
+Checking for negatives
+        >>> print_square(-10)
+        Traceback (most recent call last):
+        ...
+        ValueError: size must be >= 0
+
+Cheking no numbers
+        >>> print_square("10")
+        Traceback (most recent call last):
+        ...
+        TypeError: size must be an integer
+        >>> print_square(False)
+        Traceback (most recent call last):
+        ...
+        TypeError: size must be an integer
+        >>> print_square({2,})
+        Traceback (most recent call last):
+        ...
+        TypeError: size must be an integer
+
+Checking for no integer numbers and negatives
+        >>> print_square(-8.9)
+        Traceback (most recent call last):
+        ...
+        TypeError: size must be an integer
+
+        >>> print_square(10.56)
+        Traceback (most recent call last):
+        ...
+        TypeError: size must be an integer
+
+        >>> print_square(9.8765544333333399999999999)
+        Traceback (most recent call last):
+        ...
+        TypeError: size must be an integer
+
+        >>> print_square(float('inf'))
+        Traceback (most recent call last):
+        ...
+        TypeError: size must be an integer
+
+        >>> print_square(float('nan'))
+        Traceback (most recent call last):
+        ...
+        TypeError: size must be an integer
+
+        >>> print_square(float(None))
+        Traceback (most recent call last):
+        ...
+        TypeError: float() argument must be a string or a number, not 'NoneType'
+
+Checking for no arguments
+        >>> print_square()
+        Traceback (most recent call last):
+        ...
+        TypeError: print_square() missing 1 required positional argument: 'size'
+
+Checking for more than 1 arguments
+        >>> print_square(2,2)
+        Traceback (most recent call last):
+        ...
+        TypeError: print_square() takes 1 positional argument but 2 were given
