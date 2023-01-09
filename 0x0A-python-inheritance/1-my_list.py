@@ -1,10 +1,10 @@
 #!/usr/bin/python3
-"""Module for function is_same_class"""
+"""  New class """
 
 
-def is_same_class(obj, a_class):
-    """
-    function that returns True if the object is exactly an instance
-    of the specified class; otherwise False.
-    """
-    return type(obj) is a_class
+class MyList(list):
+    """ Mylist class that inherist from list """
+
+    def print_sorted(self):
+        """ Fucntion that prints a sorted list """
+        print(sorted(self))
