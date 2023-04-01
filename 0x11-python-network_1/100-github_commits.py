@@ -1,7 +1,6 @@
 #!/usr/bin/python3
-"""Uses the GitHub API to display a GitHub ID based on given credentials.
-Usage: ./10-my_github.py <GitHub username> <GitHub password>
-  - Uses Basic Authentication to access the ID.
+"""
+Uses the GitHub API to display a GitHub ID based on given credentials
 """
 import sys
 import requests
@@ -9,6 +8,12 @@ from requests.auth import HTTPBasicAuth
 
 
 if __name__ == "__main__":
-    auth = HTTPBasicAuth(sys.argv[1], sys.argv[2])
-    r = requests.get("https://api.github.com/user", auth=auth)
-    print(r.json().get("id"))
+    url = "https://api.github.com/repos/{}/{}/commits"\
+          .format(sys.argv[2], sys.argv[1])
+    res = requests.get(url)
+    num_commits = 0
+    for el in res.json():
+        if num_commits < 10:
+            print("{}: {}".format(el.get("sha"),
+                  el.get("commit").get("author").get("name")))
+        num_commits += 1
