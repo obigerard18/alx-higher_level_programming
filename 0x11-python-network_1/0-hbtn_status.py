@@ -1,13 +1,12 @@
 #!/usr/bin/python3
-# script that fetches https://intranet.hbtn.io/status
+"""  fetches https://intranet.hbtn.io/status  """
 import urllib.request
-import urllib.error
 
-try:
-    with urllib.request.urlopen("https://intranet.hbtn.io/status") as response:
-        req = response.read()
-        print("Body response:\n\t- type: {}"
-              "\n\t- content: {}\n\t- utf8 content: {}"
-              .format(type(req), req, req.decode('utf-8')))
-except urllib.error.URLError as e:
-    print(e)
+
+if __name__ == "__main__":
+    with urllib.request.urlopen('https://intranet.hbtn.io/status') as response:
+        r = response.read()
+        print("Body response:")
+        print("\t- type: {}".format(type(r)))
+        print("\t- content: {}".format(r))
+        print("\t- utf8 content: {}".format(r.decode("UTF-8")))
