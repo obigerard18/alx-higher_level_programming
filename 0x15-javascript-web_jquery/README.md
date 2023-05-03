@@ -1,14 +1,9 @@
-0x15. JavaScript - Web jQuery
+# Javascript - Web JQuery
 
-Requirements
-General
+All files interpretted on [Chrome v57.0](https://www.google.com/chrome/) using [jQuery v3.2.1](https://code.jquery.com/). Javascripts must conform to [semistandard](https://github.com/Flet/semistandard) style.
 
-    Allowed editors: vi, vim, emacs
-    All your files will be interpreted on Chrome (version 57.0)
-    All your files should end with a new line
-    A README.md file, at the root of the folder of the project, is mandatory
-    Your code should be semistandard compliant with the flag --global $: semistandard *.js --global $
-    You must use JQuery version 3.x
-    You are not allowed to use var
-    HTML should not reload for each action: DOM manipulation, update values, fetch data…
+### Focus
+How to use [jQuery](https://code.jquery.com/) to modify HTML elements. How to listen/bind to DOM and user events. How to make `GET` and `POST` requests with jQuery Ajax.
 
+### Author
+- [Joseph Mahiuha](https://github.com/Mahiuha)
